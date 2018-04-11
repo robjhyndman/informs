@@ -1,0 +1,12 @@
+Package: informs
+Version: 0.1
+Title: INFORMS Rmarkdown Templates
+Description: This package provides an Rmarkdown template for submissions to INFORMS journals
+Authors@R: person("Rob", "Hyndman", , "Rob.Hyndman@monash.edu", c("aut", "cre"))
+Imports: bookdown
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+ByteCompile: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.0.1
