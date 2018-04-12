@@ -50,11 +50,6 @@ $if(manuscriptno)$\MANUSCRIPTNO{$manuscriptno$}$endif$
 
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage[$for(microtypeoptions)$$microtypeoptions$$sep$,$endfor$]{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-}{}
 \PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
 $if(verbatim-in-note)$
 \usepackage{fancyvrb}
@@ -108,7 +103,7 @@ $endfor$
 $endif$
 $if(natbib)$
 \usepackage{natbib}
-\bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
+%\bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
 $endif$
 $if(biblatex)$
 \usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
@@ -211,39 +206,11 @@ $endif$
 \renewcommand{\textfraction}{0.15}
 \renewcommand{\floatpagefraction}{0.8}
 
-%\RequirePackage[section]{placeins}
-
 %% LINE AND PAGE BREAKING
 \sloppy
 \clubpenalty = 10000
 \widowpenalty = 10000
 \brokenpenalty = 10000
-\RequirePackage{microtype}
-
-%% PARAGRAPH BREAKS
-\setlength{\parskip}{1.4ex}
-\setlength{\parindent}{0em}
-
-%% HYPERLINKS
-\RequirePackage{xcolor} % Needed for links
-\definecolor{darkblue}{rgb}{0,0,.6}
-\RequirePackage{url}
-
-\makeatletter
-\@ifpackageloaded{hyperref}{}{\RequirePackage{hyperref}}
-\makeatother
-\hypersetup{
-     citecolor=0 0 0,
-     breaklinks=true,
-     bookmarksopen=true,
-     bookmarksnumbered=true,
-     linkcolor=darkblue,
-     urlcolor=blue,
-     citecolor=darkblue,
-     colorlinks=true}
-
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
 
 \usepackage[showonlyrefs]{mathtools}
 \usepackage[no-weekday]{eukdate}
@@ -301,7 +268,7 @@ $endfor$
 
 % Author's names for the running heads
 % Sample depending on the number of authors;
-\RUNAUTHOR{$for(author)$$author.othernames$~$author.familyname$$sep$, $endfor$}
+\RUNAUTHOR{$for(author)$$author.familyname$$sep$, $endfor$}
 % \RUNAUTHOR{Jones}
 % \RUNAUTHOR{Jones and Wilson}
 % \RUNAUTHOR{Jones, Miller, and Wilson}
@@ -326,7 +293,7 @@ $if(runningtitle)$\RUNTITLE{$runningtitle$}$else$\RUNTITLE{$title$}$endif$
 \ARTICLEAUTHORS{%
 $for(author)$
 \AUTHOR{$author.othernames$~$author.familyname$}
-\AFF{$author.affiliation$$if(author.email)$, \EMAIL{$author.email$}$endif$$if(author.url)$, \URL{$author.url$}$endif$}
+\AFF{$author.affiliation$$if(author.email)$. \EMAIL{$author.email$}$endif$$if(author.url)$ \URL{$author.url$}$endif$}
 $endfor$
 } % end of the block
 
@@ -363,7 +330,7 @@ $body$
 
 % Acknowledgments here
 \ACKNOWLEDGMENT{%
-$acknoledgment$
+$acknowledgment$
 }% Leave this (end of acknowledgment)
 
 
