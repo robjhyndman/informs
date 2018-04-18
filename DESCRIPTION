@@ -1,7 +1,7 @@
 Package: informs
 Version: 0.1
-Title: INFORMS Rmarkdown Templates
-Description: This package provides an Rmarkdown template for submissions to INFORMS journals
+Title: Rmarkdown Templates for INFORMS Journals
+Description: Rmarkdown template for submissions to INFORMS journals.
 Authors@R: person("Rob", "Hyndman", , "Rob.Hyndman@monash.edu", c("aut", "cre"))
 Imports: bookdown
 License: GPL-3
